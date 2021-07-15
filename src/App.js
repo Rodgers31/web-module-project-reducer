@@ -10,6 +10,9 @@ import {
 	applyNumber,
 	changeOperator,
 	clearDisplay,
+	addMemory,
+	applyMemory,
+	clearMemory,
 } from './actions/index';
 
 function App() {
@@ -24,6 +27,16 @@ function App() {
 	};
 	const clearHandler = (e) => {
 		dispatch(clearDisplay(e));
+	};
+	const handleMemory = (e) => {
+		dispatch(addMemory(e));
+	};
+
+	const handleMemoryState = (e) => {
+		dispatch(applyMemory(e));
+	};
+	const handleResetMemory = () => {
+		dispatch(clearMemory());
 	};
 	return (
 		<div className='App'>
@@ -48,9 +61,15 @@ function App() {
 						</div>
 
 						<div className='row'>
-							<CalcButton value={'M+'} />
-							<CalcButton value={'MR'} />
-							<CalcButton value={'MC'} />
+							<CalcButton value={'M+'} onClick={(e) => handleMemory('M+')} />
+							<CalcButton
+								value={'MR'}
+								onClick={(e) => handleMemoryState('MR')}
+							/>
+							<CalcButton
+								value={'MC'}
+								onClick={() => handleResetMemory('MC')}
+							/>
 						</div>
 
 						<div className='row'>
