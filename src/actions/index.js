@@ -2,6 +2,10 @@ export const ADD_ONE = "ADD_ONE";
 
 export const APPLY_NUMBER = "APPLY_NUMBER";
 export const CHANGE_OPERATION = "CHANGE_OPERATION";
+export const CLEAR_DISPLAY = 'CLEAR_DISPLAY';
+export const MEMORY_CREATE = 'MEMORY_RECORD';
+export const MEMORY_CLEAR = 'MEMORY_CLEAR';
+export const MEMORY_RERENDER = 'MEMORY_RERENDER';
 
 export const addOne = () => {
     return({type:ADD_ONE});
@@ -9,4 +13,35 @@ export const addOne = () => {
 
 export const applyNumber = (number) => {
     return({type:APPLY_NUMBER, payload:number});
+}
+
+export const changeOperation = operator => {
+
+    return({
+        type: CHANGE_OPERATION, payload:operator
+ })
+}
+
+export const clearDisplay = () => {
+    return ({
+        type:CLEAR_DISPLAY
+    })
+}
+
+export const createMemory = () => {
+    return ({
+        type:MEMORY_CREATE
+    })
+}
+
+export const clearMemory = () => {
+    return ({
+        type:MEMORY_CLEAR
+    })
+}
+
+export const rerenderMemory = () => {
+    return ({
+        type:MEMORY_RERENDER,
+    })
 }
